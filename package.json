@@ -18,7 +18,8 @@
     "react-native": "0.69.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9"
+    "@babel/core": "^7.12.9",
+    "react-test-renderer": "^18.2.0"
   },
   "jest": {
     "preset": "jest-expo"
