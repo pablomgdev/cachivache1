@@ -20,5 +20,5 @@ jobs:
       - name: Launch tests
         run: |
           echo "🚀 Launching tests..."
-          npm ci
+          npm ci --legacy-peer-deps
           npm test
