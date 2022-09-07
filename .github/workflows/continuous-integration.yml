@@ -3,7 +3,7 @@ name: Continuous integration
 on: [push, pull_request]
 
 jobs:
-  test:
+  build_and_test:
     runs-on: ubuntu-latest
 
     steps:
