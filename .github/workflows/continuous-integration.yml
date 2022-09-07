@@ -6,19 +6,26 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [16.x]
-
     steps:
-      - name: Checkout project
+      - name: 🏗 Setup project
         uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
+
+      - name: 🏗 Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
-      - name: Launch tests
+          node-version: 16.x
+
+      - name: 🏗 Setup Expo and EAS
+        uses: expo/expo-github-action@v7
+        with:
+          expo-version: latest
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+      
+      - name: 🧪 Launch tests
         run: |
-          echo "🚀 Launching tests..."
           npm ci --legacy-peer-deps
           npm test
+      
+      - name: 🚀 Build app
+        run: eas build --non-interactive
