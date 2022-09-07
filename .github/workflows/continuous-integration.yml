@@ -22,10 +22,11 @@ jobs:
           eas-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
       
+      - name: 📦 Install dependencies
+        run: npm ci --legacy-peer-deps
+
       - name: 🧪 Launch tests
-        run: |
-          npm ci --legacy-peer-deps
-          npm test
+        run: npm test
       
       - name: 🚀 Build app
         run: eas build --non-interactive
