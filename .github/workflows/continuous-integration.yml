@@ -2,7 +2,7 @@ name: Continuous integration
 
 on: [push, pull_request]
 
-# Avoid two workflows running at the same time 
+# Avoid two workflows running at the same time
 concurrency:
   group: ${{ github.ref }}
   cancel-in-progress: true
