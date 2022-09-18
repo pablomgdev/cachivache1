@@ -1,9 +1,6 @@
 import * as React from 'react';
 import {
-  FlatList,
-  View,
-  Text,
-  StyleSheet
+  FlatList, StyleSheet, Text, View
 } from 'react-native';
 
 // TODO: Move data to another place
@@ -18,6 +15,9 @@ function FoodCard(props) {
   return (
     <View style={styles.card}>
       <Text style={styles.cardTitle}>{props.name}</Text>
+      <Text style={styles.cardContentText}>Caduca: 19/12/2022</Text>
+      <Text style={styles.cardContentText}>Abierto: 19/12/2022</Text>
+      <Text style={styles.cardContentText}>Consumir antes del 19/12/2022</Text>
     </View>
   );
 }
@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
   //  Maybe a styles prop has to be passed to the component.
   //  See how to center something in react native
   card: {
+    minWidth: '90%',
     backgroundColor: '#4287f5', // TODO: use a degraded color
     borderRadius: 15,
     padding: 10,
@@ -37,7 +38,13 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     color: 'white',
-  }
+    marginBottom: 8,
+  },
+  cardContentText: {
+    fontSize: 16,
+    color: 'white',
+    marginBottom: 4,
+  },
 });
 
 function MyFoodListScreen() {
@@ -48,8 +55,17 @@ function MyFoodListScreen() {
   }
 
   return (
-    <FlatList data={DATA} renderItem={renderItem} />
+    <FlatList
+      contentContainerStyle={pageStyles.foodList}
+      data={DATA}
+      renderItem={renderItem} />
   );
 }
+
+const pageStyles = StyleSheet.create({
+  foodList: {
+    alignItems: 'center',
+  },
+});
 
 export default MyFoodListScreen;
