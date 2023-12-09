@@ -1,7 +1,7 @@
-![Continuous integration workflow](https://github.com/pablomgdev/cachivache1/actions/workflows/continuous-integration.yml/badge.svg)
-
 > [!WARNING]  
-> This repository is no longer mantained.
+> This repository is no longer maintained.
+
+![Continuous integration workflow](https://github.com/pablomgdev/cachivache1/actions/workflows/continuous-integration.yml/badge.svg)
 
 # cachivache1
 First junk app to control the expiration date of foods.
